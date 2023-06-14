@@ -125,6 +125,7 @@ h2 {
     width: 100%;
     object-fit: cover;
     object-position: center;
+    opacity: 0.75;
 }
 
 .title {
@@ -201,6 +202,7 @@ h2 {
 .floating-text h2{
     font-weight: bold;
     font-size: 4rem;
+    text-shadow: 2px 2px 2px black;
 }
 
 @media screen and (max-width: 768px) {
