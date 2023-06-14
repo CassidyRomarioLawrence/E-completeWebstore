@@ -41,7 +41,7 @@ export const products = [
     },
     {
         id : 6,
-        prodName : 'Nike Air Force 1 07 White/White/University Blue Sneaker',
+        prodName : 'Nike Air Force 1 07 University Blue Sneaker',
         prodImage : ['https://i.postimg.cc/9fWLtywP/NikeAF1.png','https://i.postimg.cc/fRMP5G60/NikeAF2.png','https://i.postimg.cc/vZmz4bJX/NikeAF3.png','https://i.postimg.cc/Xv17ncwQ/NikeAF4.png'],
         prodPrice : 2299,
         sizes : [3 , 4 , 5, 6 , 7 , 8 , 9],

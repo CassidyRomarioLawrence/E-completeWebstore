@@ -13,13 +13,13 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-dismiss="offcanvas">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-dismiss="offcanvas">Products</a>
+            <a class="nav-link" href="/products">Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-dismiss="offcanvas"><i class="bi bi-bag-fill"></i></a>
+            <a class="nav-link" href="/cart"><i class="bi bi-bag-fill"></i></a>
           </li>
         </ul>
       </div>

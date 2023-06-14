@@ -63,12 +63,11 @@
     <section id="product-slider">
         <div class="container-fluid new-releases">
             <div class="row">
-                <h2 class="my-3">New Releases</h2>
-
-                <div id="carouselProducts" class="carousel slide p-4 mb-3">
-  <div class="carousel-inner">
+                <h2>New Releases</h2>
+                <div id="carouselProducts" class="carousel slide">
+  <div class="carousel-inner slider">
     <div class="carousel-item active">
-      <div class="row py-3">
+      <div class="row">
         <div v-for="(product, index) in lastEightProducts" :key="index" class="col-md-2">
           <div class="card" style="width: 18rem;">
             <img :src="product.prodImage[0]" class="card-img-top" alt="Product Image">
@@ -116,6 +115,10 @@ export default {
 </script>
 
 <style scoped>
+.slider{
+    min-height: 70vh;
+}
+
 h2 {
     font-weight: bold;
 }
@@ -130,7 +133,6 @@ h2 {
     width: 100%;
     object-fit: cover;
     object-position: center;
-    /* opacity: 0.75; */
 }
 
 .title {
@@ -192,10 +194,11 @@ h2 {
 }
 
 .carousel-item .row {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 30px;
 }
 
 .carousel-item .col-md-2 {
@@ -208,7 +211,6 @@ h2 {
     font-weight: bold;
     font-size: 4rem;
     text-shadow: 2px 2px 2px black;
-    /* backdrop-filter: blur(3px); */
 }
 
 @media screen and (max-width: 768px) {
