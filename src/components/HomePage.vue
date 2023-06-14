@@ -4,23 +4,22 @@
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="3000">
                     <img src="https://i.postimg.cc/DyCTqm9b/grailify-APL5p-Anz-u-A-unsplash.jpg" alt="...">
-                    <div class="carousel-caption">
-                        <h3>Image 1</h3>
-                        <p>This is the first image.</p>
+                    <div class="carousel-caption floating-text">
+                        <h2>Exclusive Sneaks At Your Finger Tips.</h2>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
                     <img src="https://i.postimg.cc/8zHNjjt3/joseph-barrientos-e-BW4-S-S9-Dt-Q-unsplash.jpg" alt="...">
-                    <div class="carousel-caption">
-                        <h3>Image 2</h3>
-                        <p>This is the first image.</p>
+                    <div class="carousel-caption floating-text">
+                        <h2>Just Do It</h2>
+                        <h4>Shop our latest Nike sneakers</h4>
                     </div>
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
                     <img src="https://i.postimg.cc/Xq5qB4zP/hipkicks-AYIe-SFWh-EB8-unsplash.jpg" alt="...">
-                    <div class="carousel-caption">
-                        <h3>Image 3</h3>
-                        <p>This is the first image.</p>
+                    <div class="carousel-caption floating-text">
+                        <h2>PUMA</h2>
+                        <h4>FOREVER BETTER</h4>
                     </div>
                 </div>
             </div>
@@ -75,7 +74,7 @@
             <img :src="product.prodImage[0]" class="card-img-top" alt="Product Image">
             <div class="card-body">
               <h5 class="card-title">{{ product.prodName }}</h5>
-              <p class="card-text">{{ product.prodPrice }}</p>
+              <p class="card-text">R {{ product.prodPrice }}</p>
               <a href="#" class="btn btn-primary">Buy</a>
             </div>
           </div>
@@ -199,6 +198,11 @@ h2 {
   scroll-snap-align: start;
 }
 
+.floating-text h2{
+    font-weight: bold;
+    font-size: 4rem;
+}
+
 @media screen and (max-width: 768px) {
   .carousel-item .col-md-2 {
     flex: 0 0 calc(33.33% - 1rem);
@@ -216,4 +220,13 @@ h2 {
     .row h1 {
         font-size: 3rem;
     }
-}</style>
+}
+
+@media screen and (min-width: 1024px) {
+    .carousel-caption{
+    right: 60%;
+    left: 5%;
+    text-align: left;
+}
+}
+</style>
