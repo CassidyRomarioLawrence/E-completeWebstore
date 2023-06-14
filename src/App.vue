@@ -3,14 +3,19 @@
     <NavBar />
   </nav>
   <router-view/>
+  <footer>
+    <FooterC />
+  </footer>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue';
+import FooterC from './components/FooterC.vue';
 
 export default{
   components:{
-    NavBar
+    NavBar,
+    FooterC
   }
 }
 

@@ -145,7 +145,7 @@ export const products = [
     },
     {
         id : 18,
-        prodName : 'PUMA RICKIE GREY/BURGUNDY Sneakers',
+        prodName : 'PUMA RICKIE BURGUNDY Sneakers',
         prodImage : ['https://i.postimg.cc/Znqk7g68/Rickie1.png','https://i.postimg.cc/W1yMhJ9T/Rickie2.png'],
         prodPrice : 599,
         sizes : [3 , 4 , 5, 6 , 7 , 8 , 9],

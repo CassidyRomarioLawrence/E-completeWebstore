@@ -65,11 +65,11 @@
             <div class="row">
                 <h2 class="my-3">New Releases</h2>
 
-                <div id="carouselProducts" class="carousel slide">
+                <div id="carouselProducts" class="carousel slide p-4 mb-3">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <div class="row">
-        <div v-for="(product, index) in products" :key="index" class="col-md-2">
+      <div class="row py-3">
+        <div v-for="(product, index) in lastEightProducts" :key="index" class="col-md-2">
           <div class="card" style="width: 18rem;">
             <img :src="product.prodImage[0]" class="card-img-top" alt="Product Image">
             <div class="card-body">
@@ -105,8 +105,13 @@ export default {
     data() {
         return {
             products: products
-        }
-    }
+        };
+    },
+    computed: {
+    lastEightProducts() {
+      return this.products.slice(-8);
+    },
+}
 }
 </script>
 
@@ -125,7 +130,7 @@ h2 {
     width: 100%;
     object-fit: cover;
     object-position: center;
-    opacity: 0.75;
+    /* opacity: 0.75; */
 }
 
 .title {
@@ -203,6 +208,7 @@ h2 {
     font-weight: bold;
     font-size: 4rem;
     text-shadow: 2px 2px 2px black;
+    /* backdrop-filter: blur(3px); */
 }
 
 @media screen and (max-width: 768px) {
