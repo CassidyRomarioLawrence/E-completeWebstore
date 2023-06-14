@@ -1,24 +1,4 @@
 # webstore1
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+To view Webstore you need to make sure you have vue.js installed
+Run the command "npm i" to install node modules before running "npm run serve"
