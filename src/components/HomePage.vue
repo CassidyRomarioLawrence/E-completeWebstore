@@ -70,7 +70,7 @@
       <div class="row">
         <div v-for="(product, index) in lastEightProducts" :key="index" class="col-md-2">
           <div class="card" style="width: 18rem;">
-            <img :src="product.prodImage[0]" class="card-img-top" alt="Product Image">
+            <img :src="product.productImage[0]" class="card-img-top" alt="Product Image">
             <div class="card-body">
               <h5 class="card-title">{{ product.prodName }}</h5>
               <p class="card-text">R {{ product.prodPrice }}</p>
@@ -103,6 +103,8 @@ export default {
         const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
         cartItems.push(product);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+        alert("Add to cart");
       }
     },
     computed: {
@@ -210,7 +212,6 @@ h2 {
 .floating-text h2{
     font-weight: bold;
     font-size: 4rem;
-    text-shadow: 2px 2px 2px black;
 }
 
 @media screen and (max-width: 768px) {

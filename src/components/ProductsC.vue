@@ -9,26 +9,27 @@
             <div class="accordion mt-4" id="accordionExample">
               <div class="accordion-item">
                 <h2 class="accordion-header py-2">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
                     Category
                   </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="Nike">
+                      <input class="form-check-input" type="checkbox" value="Nike" v-model="selectedBrands">
                       <label class="form-check-label">Nike</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="Adidas">
+                      <input class="form-check-input" type="checkbox" value="Adidas" v-model="selectedBrands">
                       <label class="form-check-label">Adidas</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="New Balance">
+                      <input class="form-check-input" type="checkbox" value="New Balance" v-model="selectedBrands">
                       <label class="form-check-label">New Balance</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="Puma">
+                      <input class="form-check-input" type="checkbox" value="Puma" v-model="selectedBrands">
                       <label class="form-check-label">Puma</label>
                     </div>
                   </div>
@@ -36,65 +37,54 @@
               </div>
               <div class="accordion-item">
                 <h2 class="accordion-header py-2">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     Price
                   </button>
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <div class="form-range">
-                      <input type="range" class="form-range" min="0" max="1000" step="10">
+                    <label for="priceRange" class="form-label">Price Range</label>
+                    <div class="d-flex justify-content-between">
+                      <span>R {{ minPrice }}</span>
+                      <span>R {{ maxPrice }}</span>
                     </div>
+                    <input type="range" class="form-range" min="0" max="5000" id="priceRange" v-model="selectedPriceRange">
                   </div>
                 </div>
               </div>
               <div class="accordion-item">
-                <h2 class="accordion-header py-2">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Size
-                  </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="3">
-                      <label class="form-check-label">3</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="4">
-                      <label class="form-check-label">4</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="5">
-                      <label class="form-check-label">5</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="6">
-                      <label class="form-check-label">6</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="7">
-                      <label class="form-check-label">7</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="8">
-                      <label class="form-check-label">8</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="9">
-                      <label class="form-check-label">9</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  <h2 class="accordion-header py-2">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+      Size
+    </button>
+  </h2>
+  <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+      <div v-for="size in sizes" :key="size" class="form-check">
+        <input class="form-check-input" type="checkbox" :value="size" v-model="selectedSizes">
+        <label class="form-check-label">{{ size }}</label>
+      </div>
+    </div>
+  </div>
 </div>
+            </div>
           </div>
           <div class="col-sm-9">
             <div class="row">
-              <h5 class="mb-5">SORT BY</h5>
-              <div v-for="(product, index) in products" :key="index" class="col-md-3 mb-4">
+              <select class="form-select form-select-lg mb-3" v-model="sortOption" aria-label=".form-select-lg example">
+                <option selected disabled value="">
+                  <h2>SORT BY</h2>
+                </option>
+                <option value="priceLowToHigh">Price (Low to High)</option>
+                <option value="priceHighToLow">Price (High to Low)</option>
+                <option value="nameAZ">Name (A-Z)</option>
+                <option value="nameZA">Name (Z-A)</option>
+              </select>
+              <div v-for="(product, index) in filteredProducts" :key="index" class="col-md-3 mb-4">
                 <div class="card" style="width: 14rem;">
-                  <img :src="product.prodImage[0]" class="card-img-top" alt="Product Image">
+                  <img :src="product.productImage[0]" class="card-img-top" alt="Product Image">
                   <div class="card-body d-flex flex-column">
                     <h6 class="card-title">{{ product.prodName }}</h6>
                     <p class="card-text">R {{ product.prodPrice }}</p>
@@ -113,41 +103,84 @@
   </div>
 </template>
   
-  <script>
-  import { products } from "@/products";
-  
-  export default {
-    data() {
-      return {
-        products: products
-      };
-    },
-    methods: {
-      addToCart(product) {
-        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-        cartItems.push(product);
-        localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      }
-    }
+<script>
+import { products } from "@/products";
+
+export default {
+  data() {
+  return {
+    products: products,
+    sortOption: "",
+    selectedBrands: [],
+    selectedPriceRange: 0,
+    minPrice: 0,
+    maxPrice: 5000,
+    sizes: [3, 4, 5, 6, 7, 8, 9],
+    selectedSizes: []
   };
-  </script>
-  
-  <style scoped>
-  #shop {
-    background-image: url(https://i.postimg.cc/8PfBwGLZ/glodi-miessi-ushz-Bu-B-OYY-unsplash.jpg);
-    min-height: 60vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: local;
+},
+computed: {
+  filteredProducts() {
+    let filtered = this.products;
+
+    if (this.selectedBrands.length > 0) {
+      filtered = filtered.filter(product => this.selectedBrands.includes(product.brand));
+    }
+
+    if (this.selectedPriceRange > 0) {
+      filtered = filtered.filter(product => product.prodPrice >= this.selectedPriceRange);
+    }
+
+    if (this.selectedSizes.length > 0) {
+      filtered = filtered.filter(product => this.selectedSizes.some(size => product.sizes.includes(size)));
+    }
+
+    if (this.sortOption === "priceLowToHigh") {
+      filtered.sort((a, b) => a.prodPrice - b.prodPrice);
+    } else if (this.sortOption === "priceHighToLow") {
+      filtered.sort((a, b) => b.prodPrice - a.prodPrice);
+    } else if (this.sortOption === "nameAZ") {
+      filtered.sort((a, b) => a.prodName.localeCompare(b.prodName));
+    } else if (this.sortOption === "nameZA") {
+      filtered.sort((a, b) => b.prodName.localeCompare(a.prodName));
+    }
+
+    return filtered;
+  },
+},
+  watch: {
+    selectedPriceRange(value) {
+      this.minPrice = 0;
+      this.maxPrice = value;
+    },
+  },
+  methods: {
+    addToCart(product) {
+      const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      cartItems.push(product);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+      alert("Add to cart");
+    }
   }
+};
+</script>
   
-  h2 {
-    font-weight: bold;
-  }
-  
-  #the-sneakers {
-    margin-top: 40px;
-  }
-  </style>
+<style scoped>
+#shop {
+  background-image: url(https://i.postimg.cc/8PfBwGLZ/glodi-miessi-ushz-Bu-B-OYY-unsplash.jpg);
+  min-height: 60vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: local;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+#the-sneakers {
+  margin-top: 40px;
+}</style>
   

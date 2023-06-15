@@ -2,10 +2,10 @@
     <div class="container d-flex single-prod" v-if="selectedProduct">
       <div class="row align-items-center w-100">
         <div class="col-md-6 text-center">
-          <img :src="selectedProduct.prodImage[selectedImageIndex]" alt="Product Image">
+          <img :src="selectedProduct.productImage[selectedImageIndex]" alt="Product Image">
           <div class="image-gallery">
             <img
-              v-for="(image, index) in selectedProduct.prodImage"
+              v-for="(image, index) in selectedProduct.productImage"
               :key="index"
               :src="image"
               :class="{ active: index === selectedImageIndex }"
@@ -31,6 +31,7 @@
               <button class="increment-button" @click="incrementQuantity">+</button>
             </div>
           </div>
+          <a href="#" class="btn btn-success" @click="addToCart(selectedProduct)">Add to cart <i class="bi bi-bag"></i></a>
         </div>
       </div>
     </div>
@@ -63,6 +64,13 @@
       },
       changeImage(index) {
         this.selectedImageIndex = index;
+      },
+      addToCart(product) {
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        cartItems.push(product);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  
+        alert("Added to cart");
       }
     }
   };

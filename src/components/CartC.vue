@@ -19,15 +19,15 @@
               </div>
               <div v-else>
                 <table class="table table-group-divider my-4">
-                  <tbody>
-                    <tr v-for="(item, index) in cartItems" :key="index">
-                      <td><img :src="item.prodImage[0]" alt=""></td>
-                      <td>{{ item.prodName }}</td>
-                      <td>R {{ item.prodPrice }}</td>
-                      <td><button class="btn btn-danger" @click="removeFromCart(index)"><i class="bi bi-trash3"></i></button></td>
-                    </tr>
-                  </tbody>
-                </table>
+          <tbody>
+            <tr v-for="(item, index) in cartItems" :key="index">
+              <td><img :src="item.productImage[0]" alt=""></td>
+              <td>{{ item.prodName }}</td>
+              <td>R {{ item.prodPrice }}</td>
+              <td><button class="btn btn-danger" @click="removeFromCart(index)"><i class="bi bi-trash3"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
               </div>
             </div>
             <div class="col-sm-4">
@@ -78,6 +78,8 @@ export default {
     removeFromCart(index) {
       this.cartItems.splice(index, 1);
       localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
+
+      alert("Removed from cart")
     }
   }
 };
