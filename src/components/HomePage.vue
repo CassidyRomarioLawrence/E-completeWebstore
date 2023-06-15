@@ -51,8 +51,8 @@
                 <div class="col-sm-4 nike">
                     <h4>Nike Collection</h4>
                 </div>
-                <div class="col-sm-4 jordans">
-                    <h4>Jordan Collection</h4>
+                <div class="col-sm-4 puma">
+                    <h4>Puma Collection</h4>
                 </div>
                 <div class="col-sm-4 new-balance">
                     <h4>New Balance Collection</h4>
@@ -74,21 +74,13 @@
             <div class="card-body">
               <h5 class="card-title">{{ product.prodName }}</h5>
               <p class="card-text">R {{ product.prodPrice }}</p>
-              <a href="#" class="btn btn-primary">Buy</a>
+              <a href="#" class="btn" @click="addToCart(product)"><i class="bi bi-bag"></i></a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselProducts" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselProducts" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
 
 
@@ -105,6 +97,13 @@ export default {
         return {
             products: products
         };
+    },
+    methods: {
+      addToCart(product) {
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        cartItems.push(product);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      }
     },
     computed: {
     lastEightProducts() {
@@ -125,7 +124,7 @@ h2 {
 
 .carousel-item {
     width: 100vw;
-    height: 60vh;
+    height: 75vh;
 }
 
 .carousel-item img {
@@ -133,6 +132,7 @@ h2 {
     width: 100%;
     object-fit: cover;
     object-position: center;
+    opacity: 0.85;
 }
 
 .title {
@@ -150,7 +150,7 @@ h2 {
 .vans,
 .nike,
 .new-balance,
-.jordans {
+.puma {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -164,7 +164,7 @@ h2 {
 .vans:hover,
 .nike:hover,
 .new-balance:hover,
-.jordans:hover {
+.puma:hover {
     transform: scale(1.1);
 }
 
@@ -180,8 +180,8 @@ h2 {
     background-image: url(https://i.postimg.cc/6pyNDWp8/sneakers123-6ha-Ngmw-VNMc-unsplash-1.jpg);
 }
 
-.jordans {
-    background-image: url(https://i.postimg.cc/8PYmZZbr/albert-vincent-wu-F24c-C3-HK6-Rc-unsplash.jpg);
+.puma {
+    background-image: url(https://i.postimg.cc/VvcfCKYC/hipkicks-T8-G7-FGyt-Tn0-unsplash.jpg);
 }
 
 .new-balance {

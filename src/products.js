@@ -48,6 +48,14 @@ export const products = [
         brand : 'Nike'
     },
     {
+        id : 18,
+        prodName : 'PUMA RICKIE BURGUNDY Sneakers',
+        prodImage : ['https://i.postimg.cc/Znqk7g68/Rickie1.png','https://i.postimg.cc/W1yMhJ9T/Rickie2.png'],
+        prodPrice : 599,
+        sizes : [3 , 4 , 5, 6 , 7 , 8 , 9],
+        brand : 'Puma'
+    },
+    {
         id : 7,
         prodName : 'adidas Originals Grey Ozweego',
         prodImage : ['https://i.postimg.cc/nzt7bTDX/Ozweego1.png','https://i.postimg.cc/mZPcX0qm/Ozweego2.png','https://i.postimg.cc/k5D9MdWZ/Ozweego3.png'],
@@ -97,7 +105,7 @@ export const products = [
     },
     {
         id : 13,
-        prodName : 'adidas Originals Niteball White/Blue Sneaker',
+        prodName : 'adidas Niteball White/Blue Sneaker',
         prodImage : ['https://i.postimg.cc/wMH7XdM2/Niteball1.png','https://i.postimg.cc/RhFz5PD9/Niteball2.png','https://i.postimg.cc/SQBptGG0/Niteball3.png'],
         prodPrice : 2499,
         sizes : [3 , 4 , 5, 6 , 7 , 8 , 9],
@@ -140,14 +148,6 @@ export const products = [
         prodName : 'Puma Carina 2.0 Logo Power White Sneaker',
         prodImage : ['https://i.postimg.cc/y6gJwBwD/Puma1.png','https://i.postimg.cc/rpHW79N4/Puma2.png'],
         prodPrice : 1300,
-        sizes : [3 , 4 , 5, 6 , 7 , 8 , 9],
-        brand : 'Puma'
-    },
-    {
-        id : 18,
-        prodName : 'PUMA RICKIE BURGUNDY Sneakers',
-        prodImage : ['https://i.postimg.cc/Znqk7g68/Rickie1.png','https://i.postimg.cc/W1yMhJ9T/Rickie2.png'],
-        prodPrice : 599,
         sizes : [3 , 4 , 5, 6 , 7 , 8 , 9],
         brand : 'Puma'
     },

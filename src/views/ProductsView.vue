@@ -4,6 +4,7 @@
 
 <script>
 import ProductsC from '@/components/ProductsC.vue';
+
     export default {
         components:{
             ProductsC
